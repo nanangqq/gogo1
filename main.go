@@ -75,16 +75,66 @@ func canIDrink(age int) bool {
 }
 
 func sw(age int) bool {
-	switch age {
+	// switch age {
+	// case 10:
+	// 	return false
+	// case 18:
+	// 	return true
+	// }
+	// return false
+	switch koreanAge := age + 2; koreanAge {
 	case 10:
 		return false
 	case 18:
 		return true
 	}
 	return false
+
+	// switch {
+	// case age < 18:
+	// 	return false
+	// case age >= 18:
+	// 	return true
+	// }
+	// return false
+}
+
+type person struct {
+	name    string
+	age     int
+	favFood []string
 }
 
 func main() {
+	favFood := []string{"burger"}
+	// nic := person{"nico", 22, favFood}
+	nic := person{name: "nico", age: 22, favFood: favFood} // struct,,,
+	fmt.Println(nic.name)
+
+	nico := map[string]string{"name": "nico", "age": "12"} // map
+	fmt.Println(nico)
+	for key, value := range nico {
+		fmt.Println(key, value)
+	}
+
+	names := [5]string{"a", "b", "c"} // array
+	names[3] = "d"
+	fmt.Println(names)
+
+	aa := []string{"1", "2"} // slice
+	aa = append(aa, "3")
+	fmt.Println(aa, len(aa))
+
+	a := 2
+	// b := a
+	b := &a // 메모리 주소
+	fmt.Println(a, *b)
+	a = 10
+	*b = 11 // 해당 메모리 주소의 데이터
+	fmt.Println(a, *b)
+	fmt.Println(&a, &b)
+	// fmt.Println(b)
+
 	fmt.Println(canIDrink(16))
 	fmt.Println(sw(16))
 
